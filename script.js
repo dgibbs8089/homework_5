@@ -91,3 +91,34 @@ function updateCalendarTasks(dayObject) {
     $(this).children("textarea").text(dayObject[res.text()]);
     })
 }
+
+
+var fizzBuzz = function(arr) {
+for (var i = 0; i < arr.length; i++) {
+    var currentNumber = arr[i];
+
+    if (currentNumber % 15 === 0) {
+    console.log("Fizz Buzz");
+    } else if (currentNumber % 3 === 0) {
+    console.log("Fizz");
+    } else if (currentNumber % 5 === 0) {
+    console.log("Buzz");
+    } else {
+    console.log(currentNumber);
+    }
+}
+};
+
+var inst = mobiscroll.eventcalendar('#demo-daily-events', {
+    theme: 'ios',
+    themeVariant: 'light',
+    display: 'inline',
+    view: {
+        calendar: { type: 'week' },
+        eventList: { type: 'day', scrollable: true }
+    }
+});
+
+mobiscroll.util.getJson('https://trial.mobiscroll.com/events/', function (events) {
+    inst.setEvents(events);
+}, 'jsonp');
